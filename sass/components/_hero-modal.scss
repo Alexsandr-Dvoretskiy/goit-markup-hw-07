@@ -174,8 +174,8 @@ textarea {
   box-shadow: $card-shadow;
   transition: background-color $transition-time $transition-cubic;
 }
-.button-form:hover,
-.button-form:focus {
+.button__form:hover,
+.button__form:focus {
   background-color: $secondary-color;
 }
 .button-close {
