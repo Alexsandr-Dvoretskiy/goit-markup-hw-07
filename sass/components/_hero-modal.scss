@@ -10,11 +10,13 @@
     opacity $transition-time $transition-cubic;
   z-index: 1;
 }
+
 .backdrop.is-hidden {
   transform: scale(0);
   opacity: 0;
   pointer-events: none;
 }
+
 .modal {
   position: relative;
   top: 50%;
@@ -39,12 +41,14 @@
 
   color: #212121;
 }
+
 .modal__form-field {
   display: flex;
   flex-direction: column;
   margin-bottom: 10px;
   position: relative;
 }
+
 .modal__form-field label {
   text-align: left;
   margin-bottom: 4px;
@@ -66,13 +70,16 @@
   padding-left: 40px;
   outline: 0;
   transition: border-color $transition-time $transition-cubic;
+
+  &:focus {
+    border-color: $secondary-color;
+  }
 }
-.modal__form-field input:focus {
-  border-color: $secondary-color;
-}
+
 .modal__form-input {
   position: relative;
 }
+
 .modal__form-svg {
   position: absolute;
   width: 18px;
@@ -81,11 +88,12 @@
 
   bottom: 11px;
   left: 12px;
-}
-.modal__form-field:focus-within > .modal__form-svg {
-  fill: $accent-color;
-  border-color: $accent-color;
-  outline: 0;
+
+  .modal__form-field:focus-within > & {
+    fill: $accent-color;
+    border-color: $accent-color;
+    outline: 0;
+  }
 }
 
 textarea {
@@ -104,16 +112,11 @@ textarea {
   letter-spacing: 0.03em;
   color: #757575;
 }
+//
 .checkbox__input {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  border: 0;
-  padding: 0;
-  clip: rect(0 0 0 0);
-  overflow: hidden;
+  @extend %visually-hidden;
 }
+
 .checkbox__input:checked + .checkbox__svg {
   background-color: $secondary-color;
   background-image: url(../images/icon\ check2.svg);
@@ -141,10 +144,12 @@ textarea {
   border-radius: 4px;
   margin-top: 4px;
   cursor: pointer;
+
+  .checkbox__text:focus & {
+    color: $accent-color;
+  }
 }
-.checkbox__text:focus .checkbox__svg {
-  color: $accent-color;
-}
+
 .modal__form-field textarea::placeholder {
   font-size: 14px;
   line-height: 1.16;
@@ -152,9 +157,11 @@ textarea {
 
   color: rgba(117, 117, 117, 0.5);
 }
+
 .modal__form-field textarea:focus {
   border-color: $accent-color;
 }
+
 .button__form {
   border-radius: 4px;
   min-width: 200px;
@@ -174,10 +181,12 @@ textarea {
   box-shadow: $card-shadow;
   transition: background-color $transition-time $transition-cubic;
 }
+
 .button__form:hover,
 .button__form:focus {
   background-color: $secondary-color;
 }
+
 .button-close {
   position: absolute;
   right: 8px;
@@ -189,6 +198,7 @@ textarea {
   border-radius: 50%;
   cursor: pointer;
 }
+
 .button-close__svg {
   right: 0;
   top: 0;
@@ -197,15 +207,18 @@ textarea {
   height: 30px;
   background-size: cover;
   transition: fill $transition-time $transition-cubic;
+
+  &:hover,
+  &:focus {
+    fill: $accent-color;
+  }
+
+  .button-close:focus & {
+    fill: $accent-color;
+    border-color: $accent-color;
+  }
 }
-.button-close__svg:hover,
-.button-close__svg:focus {
-  fill: $accent-color;
-}
-.button-close:focus .button-close__svg {
-  fill: $accent-color;
-  border-color: $accent-color;
-}
+
 .checkbox__link {
   color: $accent-color;
   margin-left: 5px;
