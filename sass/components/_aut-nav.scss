@@ -19,40 +19,36 @@
   padding-top: 39px;
   padding-bottom: 40px;
 
-  color: var(--primary-text-color);
+  color: $primary__text-color;
   letter-spacing: 0.02em;
   font-weight: 500;
   font-size: 14px;
   line-height: 1.14;
 
   transition: color $transition-time $transition-cubic;
-}
 
-.aut-nav__link:hover,
-.aut-nav__link:focus {
-  color: $accent-color;
+  &:hover,
+  &:focus {
+    color: $accent-color;
+  }
 }
 
 .aut-nav__svg {
-  display: block;
-  padding: 0;
-  border: 0;
+  @extend %display-block;
   width: 17px;
   height: 18px;
-  fill: #afb1b8;
+  fill: $grey-colour;
   margin-right: 10px;
+
+  .aut-nav__link:hover &,
+  .aut-nav__link:focus & {
+    fill: $accent-color;
+  }
 }
 
 .aut-nav__svg--tel {
-  display: block;
-  padding: 0;
-  border: 0;
+  @extend %display-block;
   width: 20px;
   height: 18px;
-  fill: #afb1b8;
-}
-
-.aut-nav__link:hover .aut-nav__svg,
-.aut-nav__link:focus .aut-nav__svg {
-  fill: $accent-color;
+  fill: $grey-colour;
 }
